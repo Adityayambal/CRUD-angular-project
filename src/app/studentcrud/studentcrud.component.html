@@ -1,0 +1,61 @@
+<div class="container mt-4" >
+    <div class="card">
+            <h1>Student Registation</h1>
+<form>
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}"  class="form-control" id="name" placeholder="Enter Name"> 
+    </div>
+
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" class="form-control"  [(ngModel)]="email" [ngModelOptions]="{standalone: true}" id="address" placeholder="Enter Email"> 
+      </div>
+
+      <div class="form-group">
+        <label>Department</label>
+        <input type="text" class="form-control" [(ngModel)]="department" [ngModelOptions]="{standalone: true}" id="phone" placeholder="Enter Department"> 
+      </div>
+
+      <div class="form-group">
+        <label>Position</label>
+        <input type="text" class="form-control" [(ngModel)]="position" [ngModelOptions]="{standalone: true}" id="phone" placeholder="Enter Position"> 
+      </div>
+
+      <div class="form-group">
+        <label>Joining date</label>
+        <input type="text" class="form-control" [(ngModel)]="joiningdate" [ngModelOptions]="{standalone: true}" id="phone" placeholder="Enter Joiningdate"> 
+      </div>
+    <button type="submit" (click)="save()" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+</div>
+
+<div class="container mt-4" >
+ <h1>Student Table</h1>
+<table class="table">
+  <thead>    
+  <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Department</th>  
+      <th scope="col">Position</th>
+      <th scope="col">Joiningdate</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let StudentItem of StudentArray">
+      <td>{{StudentItem.name  | uppercase}}</td>
+      <td>{{StudentItem.email }}</td>
+      <td>{{StudentItem.department }}</td>
+      <td>{{StudentItem.position }}</td>
+      <td>{{StudentItem.joiningdate }}</td>
+      <td>
+        <button type="button" class="btn btn-success" (click)="setUpdate(StudentItem)">Edit</button>
+        <button type="button" class="btn btn-danger" (click)="setDelete(StudentItem)">Delete</button>            
+      </td>
+    </tr>          
+  </tbody>
+</table>
+
+</div>
